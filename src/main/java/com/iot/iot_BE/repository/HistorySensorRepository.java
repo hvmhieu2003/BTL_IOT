@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface HistorySensorRepository extends JpaRepository<Integer, HistorySensor> {
+public interface HistorySensorRepository extends JpaRepository<HistorySensor, Long> {
 }

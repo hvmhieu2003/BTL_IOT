@@ -2,13 +2,18 @@ package com.iot.iot_BE.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "history_sensors")
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class HistorySensor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -20,10 +20,10 @@ public class MqttService {
 
     public MqttService() throws MqttException {
         // Tạo kết nối MQTT
-        client = new MqttClient("tcp://localhost:1883", MqttClient.generateClientId());
+        client = new MqttClient("tcp://localhost:1884", MqttClient.generateClientId());
         MqttConnectOptions options = new MqttConnectOptions();
-        options.setUserName("DongND");
-        options.setPassword("dong1808".toCharArray());
+        options.setUserName("Hoang_Van_Minh_Hieu");
+        options.setPassword("b21dccn051".toCharArray());
         client.connect(options);
 
         // Subscribe topic

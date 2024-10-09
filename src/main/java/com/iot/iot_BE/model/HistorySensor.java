@@ -1,6 +1,10 @@
 package com.iot.iot_BE.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
+import java.util.Date;
+
 @Entity
 @Table(name = "history_sensors")
 public class HistorySensor {
@@ -18,4 +22,21 @@ public class HistorySensor {
     @Column(name = "light", nullable = true, columnDefinition = "double")
     private Double light;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date createdAt;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date updatedAt;
+
+    @PrePersist
+    public void handleBeforeCreate() {
+        Date now = new Date();
+        this.createdAt = now;
+        this.updatedAt = now;
+    }
+
+    @PreUpdate
+    public void handleBeforeUpdate() {
+        this.updatedAt = new Date();
+    }
 }

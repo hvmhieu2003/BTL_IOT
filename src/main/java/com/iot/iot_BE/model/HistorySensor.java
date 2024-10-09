@@ -8,11 +8,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "history_sensors")
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class HistorySensor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +38,53 @@ public class HistorySensor {
     @PreUpdate
     public void handleBeforeUpdate() {
         this.updatedAt = new Date();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public Double getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(Double humidity) {
+        this.humidity = humidity;
+    }
+
+    public Double getLight() {
+        return light;
+    }
+
+    public void setLight(Double light) {
+        this.light = light;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

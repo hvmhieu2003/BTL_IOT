@@ -48,7 +48,4 @@ public class MqttService {
 
         historySensorRepository.save(sensorData);
     }
-
-
-
 }

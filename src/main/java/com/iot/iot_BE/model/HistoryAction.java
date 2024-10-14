@@ -28,10 +28,10 @@ public class HistoryAction {
     @Column(name = "ac", length = 255)
     private String ac;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date createdAt;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date updatedAt;
 
     @PrePersist

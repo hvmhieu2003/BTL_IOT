@@ -22,10 +22,10 @@ public class HistorySensor {
     @Column(name = "light", nullable = true, columnDefinition = "double")
     private Double light;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date createdAt;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date updatedAt;
 
     @PrePersist

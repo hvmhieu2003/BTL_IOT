@@ -38,32 +38,42 @@ public class MqttService {
     private void handleMessage(String topic, MqttMessage message) {
         // Chuyển đổi message MQTT thành dữ liệu JSON
         String payload = new String(message.getPayload());
-        // Giả định payload là một JSON object
-        JSONObject json = new JSONObject(payload);
-        double temp = json.getDouble("temperature");
-        double humi = json.getDouble("humidity");
-        double light = json.getDouble("lux");
+        System.out.println("Received MQTT message: " + payload);
 
+        try {
+            // Giả định payload là một JSON object
+            JSONObject json = new JSONObject(payload);
+            double temp = json.getDouble("temperature");
+            double humi = json.getDouble("humidity");
+            double light = json.getDouble("lux");
 
-        // Lưu dữ liệu vào cơ sở dữ liệu
-        HistorySensor sensorData = new HistorySensor();
-        sensorData.setTemperature(temp);
-        sensorData.setHumidity(humi);
-        sensorData.setLight(light);
+            System.out.println("Temperature: " + temp + ", Humidity: " + humi + ", Light: " + light);
 
-        historySensorRepository.save(sensorData);
+            // Lưu dữ liệu vào cơ sở dữ liệu
+            HistorySensor sensorData = new HistorySensor();
+            sensorData.setTemperature(temp);
+            sensorData.setHumidity(humi);
+            sensorData.setLight(light);
 
+            historySensorRepository.save(sensorData);
+            System.out.println("Saved sensor data: " + sensorData);
 
-        String fanState = json.getString("fan");
-        String lightState = json.getString("light");
-        String acState = json.getString("ac");
+            String fanState = String.valueOf(json.getInt("fan"));
+            String lightState = String.valueOf(json.getInt("light"));
+            String acState = String.valueOf(json.getInt("ac"));
 
-        HistoryAction actionData = HistoryAction.builder()
-                .fan(fanState)
-                .light(lightState)
-                .ac(acState)
-                .build();
+            HistoryAction actionData = HistoryAction.builder()
+                    .fan(fanState)
+                    .light(lightState)
+                    .ac(acState)
+                    .build();
 
-        historyActionRepository.save(actionData);
+            historyActionRepository.save(actionData);
+            System.out.println("Saved action data: " + actionData);
+
+        } catch (Exception e) {
+            System.err.println("Error handling MQTT message: " + e.getMessage());
+        }
     }
+
 }

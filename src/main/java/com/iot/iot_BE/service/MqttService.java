@@ -2,6 +2,7 @@ package com.iot.iot_BE.service;
 
 import com.iot.iot_BE.model.HistoryAction;
 import com.iot.iot_BE.model.HistorySensor;
+import com.iot.iot_BE.repository.HistoryActionRepository;
 import com.iot.iot_BE.repository.HistorySensorRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.Service;
 public class MqttService {
     @Autowired
     private HistorySensorRepository historySensorRepository;
+
+    @Autowired
+    private HistoryActionRepository historyActionRepository;
     private MqttClient client;
 
     public MqttService() throws MqttException {

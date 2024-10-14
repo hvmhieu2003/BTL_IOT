@@ -31,18 +31,10 @@ public class HistoryAction {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date createdAt;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date updatedAt;
-
     @PrePersist
     public void handleBeforeCreate() {
-        Date now = new Date();
-        this.createdAt = now;
-        this.updatedAt = now;
+        this.createdAt = new Date();
     }
 
-    @PreUpdate
-    public void handleBeforeUpdate() {
-        this.updatedAt = new Date();
-    }
+
 }

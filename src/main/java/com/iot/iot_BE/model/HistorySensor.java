@@ -25,21 +25,7 @@ public class HistorySensor {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date createdAt;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date updatedAt;
-
-    @PrePersist
-    public void handleBeforeCreate() {
-        Date now = new Date();
-        this.createdAt = now;
-        this.updatedAt = now;
-    }
-
     @PreUpdate
-    public void handleBeforeUpdate() {
-        this.updatedAt = new Date();
-    }
-
     public Long getId() {
         return id;
     }
@@ -80,11 +66,8 @@ public class HistorySensor {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    @PrePersist
+    public void handleBeforeCreate() {
+        this.createdAt = new Date();
     }
 }

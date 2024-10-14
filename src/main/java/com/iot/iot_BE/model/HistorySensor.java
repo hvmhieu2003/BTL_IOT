@@ -26,6 +26,10 @@ public class HistorySensor {
     private Date createdAt;
 
     @PreUpdate
+    public void handleBeforeUpdate() {
+        // Logic to handle before update (nếu cần)
+    }
+
     public Long getId() {
         return id;
     }

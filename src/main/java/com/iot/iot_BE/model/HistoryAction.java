@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "history_actions")
@@ -19,22 +19,14 @@ public class HistoryAction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fan", length = 255)
-    private String fan;
+    private String device; // Tên thiết bị
+    private String action; // Trạng thái On/Off
 
-    @Column(name = "light", length = 255)
-    private String light;
-
-    @Column(name = "ac", length = 255)
-    private String ac;
-
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date createdAt;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss") // Định dạng bao gồm giờ, phút, giây
+    private LocalDateTime createdAt;
 
     @PrePersist
     public void handleBeforeCreate() {
-        this.createdAt = new Date();
+        this.createdAt = LocalDateTime.now(); // Thay đổi từ Date thành LocalDateTime
     }
-
-
 }

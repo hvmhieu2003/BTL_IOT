@@ -33,14 +33,15 @@ public class MqttService {
         options.setPassword("b21dccn051".toCharArray());
         client.connect(options);
 
-        // Subscribe topic
-        client.subscribe("data_sensor", this::handleMessage);
+        // Subscribe các topic
+        client.subscribe("data_sensor", this::handleSensorMessage);
+        client.subscribe("device/action", this::handleDeviceActionMessage);
     }
 
-    private void handleMessage(String topic, MqttMessage message) {
+    private void handleSensorMessage(String topic, MqttMessage message) {
         // Chuyển đổi message MQTT thành dữ liệu JSON
         String payload = new String(message.getPayload());
-        logger.info("Received MQTT message: {}", payload);
+        logger.info("Received MQTT message from sensor: {}", payload);
 
         try {
             // Giả định payload là một JSON object
@@ -60,23 +61,38 @@ public class MqttService {
             historySensorRepository.save(sensorData);
             logger.info("Saved sensor data: {}", sensorData);
 
-            String fanState = String.valueOf(json.getInt("fan"));
-            String ledState = String.valueOf(json.getInt("led"));
-            String acState = String.valueOf(json.getInt("ac"));
+        } catch (Exception e) {
+            logger.error("Error handling sensor message: {}", e.getMessage());
+        }
+    }
 
+    private void handleDeviceActionMessage(String topic, MqttMessage message) {
+        // Chuyển đổi message MQTT thành dữ liệu JSON
+        String payload = new String(message.getPayload());
+        logger.info("Received MQTT message for device action: {}", payload);
+
+        try {
+            // Giả định payload là một JSON object
+            JSONObject json = new JSONObject(payload);
+            String device = json.getString("device");
+            String status = json.getString("status");
+
+            logger.info("Device: {}, Status: {}", device, status);
+
+            // Lưu trạng thái vào cơ sở dữ liệu
             HistoryAction actionData = HistoryAction.builder()
-                    .fan(fanState)
-                    .light(ledState)
-                    .ac(acState)
+                    .device(device) // Lưu tên thiết bị
+                    .action(status) // Lưu trạng thái On/Off
                     .build();
 
             historyActionRepository.save(actionData);
             logger.info("Saved action data: {}", actionData);
 
         } catch (Exception e) {
-            logger.error("Error handling MQTT message: {}", e.getMessage());
+            logger.error("Error handling device action message: {}", e.getMessage());
         }
     }
+
 
     public void sendDeviceCommand(String device, boolean state) {
         String message = state ? "ON" : "OFF";

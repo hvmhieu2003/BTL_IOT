@@ -5,6 +5,7 @@ import com.iot.iot_BE.service.HistoryActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +19,10 @@ public class HistoryActionController {
     @GetMapping
     public List<HistoryAction> getHistoryActions() {
         return service.getAllHistoryActions();
+    }
+
+    @GetMapping("/search")
+    public List<HistoryAction> searchHistoryActions(@RequestParam String type, @RequestParam String value) {
+        return service.searchHistoryActions(type, value);
     }
 }

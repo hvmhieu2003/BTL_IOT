@@ -21,4 +21,9 @@ public class HistorySensorController {
         return historySensorService.getAllHistorySensor();
     }
 
+    @GetMapping("/search")
+    public List<HistorySensor> searchHistorySensor(@RequestParam String type, @RequestParam String value) {
+        return historySensorService.searchHistorySensor(type, value);
+    }
+
 }

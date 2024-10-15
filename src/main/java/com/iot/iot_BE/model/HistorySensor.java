@@ -3,8 +3,7 @@ package com.iot.iot_BE.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "history_sensors")
@@ -22,8 +21,8 @@ public class HistorySensor {
     @Column(name = "light", nullable = true, columnDefinition = "double")
     private Double light;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date createdAt;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss") // Định dạng bao gồm giờ, phút, giây
+    private LocalDateTime createdAt;
 
     @PreUpdate
     public void handleBeforeUpdate() {
@@ -62,16 +61,16 @@ public class HistorySensor {
         this.light = light;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
     @PrePersist
     public void handleBeforeCreate() {
-        this.createdAt = new Date();
+        this.createdAt = LocalDateTime.now(); // Sử dụng LocalDateTime để lưu thời gian hiện tại
     }
 }

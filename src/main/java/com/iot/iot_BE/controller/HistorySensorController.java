@@ -2,6 +2,8 @@ package com.iot.iot_BE.controller;
 
 import com.iot.iot_BE.model.HistorySensor;
 import com.iot.iot_BE.repository.HistorySensorRepository;
+import com.iot.iot_BE.service.HistorySensorService;
+import com.iot.iot_BE.service.MqttService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,19 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sensordata")
+@RequestMapping("/api/history_sensor") // Thay đổi đường dẫn cho phù hợp với Dashboard.js
 public class HistorySensorController {
     @Autowired
-    private HistorySensorRepository historySensorRepository;
-
-    @PostMapping
-    public ResponseEntity<String> saveSensorData(@RequestBody HistorySensor sensorData) {
-        historySensorRepository.save(sensorData);
-        return ResponseEntity.ok("Sensor data received");
-    }
+    private HistorySensorService historySensorService;
 
     @GetMapping
-    public List<HistorySensor> getAllSensorData() {
-        return historySensorRepository.findAll();
+    public List<HistorySensor> getHistorySensor() {
+        return historySensorService.getAllHistorySensor();
     }
+
 }

@@ -1,21 +1,18 @@
 package com.iot.iot_BE.service;
 
 import com.iot.iot_BE.model.HistoryAction;
-import com.iot.iot_BE.model.HistorySensor;
 import com.iot.iot_BE.repository.HistoryActionRepository;
-import com.iot.iot_BE.repository.HistorySensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class HistorySensorService {
+public class HistoryActionService {
     @Autowired
-    private HistorySensorRepository repository;
+    private HistoryActionRepository repository;
 
-    public List<HistorySensor> getAllHistorySensor() {
+    public List<HistoryAction> getAllHistoryActions() {
         return repository.findAll();
     }
-
 }

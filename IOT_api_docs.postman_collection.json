@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "35194488-ddf6-465e-b357-93ff462877d2",
+		"name": "IOT_api_docs",
+		"description": "docs_api_BTL_IOT_HVMHIEU_B21DCCN051",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39033111"
+	},
+	"item": [
+		{
+			"name": "HistoryActions",
+			"item": [
+				{
+					"name": "get_history_action",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/history_actions?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"history_actions"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"description": "in ra bảng dữ liệu history action"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HistorySensor",
+			"item": [
+				{
+					"name": "get_history_sensor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/history_sensor?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"history_sensor"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"description": "in ra bảng dữ liệu history sensor"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SearchHistoryActions",
+			"item": [
+				{
+					"name": "get_search_history_actions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/history_actions/search?query=42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"history_actions",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "42",
+									"description": "nhập giá trị cần tìm\n1. Nếu muốn tìm các device có thể nhập \"Fan, Airconditioner, Led\n2. Nếu muốn tìm action có thể nhập \"On, Off\"\n3. Nếu muốn tìm thời gian có thể nhập thời gian cần tìm (có thể đầy đủ thời gian hoặc không)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SearchHistorySensor",
+			"item": [
+				{
+					"name": "get_search_history_senor_bytype",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/history_sensor/search/bytype?sortField=id&sortDirection=DESC&pageNumber=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"history_sensor",
+								"search",
+								"bytype"
+							],
+							"query": [
+								{
+									"key": "temperature",
+									"value": "31.3",
+									"description": "tìm theo giá trị nhiệt độ",
+									"disabled": true
+								},
+								{
+									"key": "humidity",
+									"value": "50",
+									"description": "tìm theo giá trị độ ẩm",
+									"disabled": true
+								},
+								{
+									"key": "light",
+									"value": "139.3",
+									"description": "tìm theo giá trị ánh sáng",
+									"disabled": true
+								},
+								{
+									"key": "dust",
+									"value": "",
+									"description": "tìm theo giá trị độ bụi",
+									"disabled": true
+								},
+								{
+									"key": "query",
+									"value": "",
+									"description": "nhập giá trị muốn tìm vào ",
+									"disabled": true
+								},
+								{
+									"key": "sortField",
+									"value": "id",
+									"description": "trường dữ liệu muốn sắp xếp, cố định là id"
+								},
+								{
+									"key": "sortDirection",
+									"value": "DESC",
+									"description": "lựa chọn sắp xếp tăng hoặc giảm dần"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0",
+									"description": "chọn trang để hiển thị"
+								},
+								{
+									"key": "pageSize",
+									"value": "10",
+									"description": "kích thước trang"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

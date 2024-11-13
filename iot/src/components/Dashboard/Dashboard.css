@@ -1,0 +1,389 @@
+/* Media Query cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    background-color: #2c3e50;
+    width: 200px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100vh; /* Chiều cao bằng viewport */
+  }
+
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .info-boxes {
+    flex-direction: column;
+  }
+
+  .info-box {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .statistics-and-controls {
+    flex-direction: column;
+  }
+
+  .statistics, .control-devices {
+    min-width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .control-devices {
+    margin-left: 0;
+  }
+}
+
+/* Media Query cho màn hình rất nhỏ */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .info-box h3 {
+    font-size: 16px;
+  }
+
+  .info-box p {
+    font-size: 20px;
+  }
+
+  .device-buttons span {
+    font-size: 16px;
+  }
+
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 22px;
+    width: 22px;
+  }
+}
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* App Container */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #2c3e50;
+  width: 200px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+/* Sidebar Title */
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 10px;
+  color: #ecf0f1;
+}
+
+/* Sidebar Navigation */
+.sidebar nav {
+  margin-top: 20px;
+}
+
+.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.sidebar nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Header Icons */
+.header-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.header-icons .icon {
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.header-icons .icon:hover {
+  color: #3498db; /* Change color on hover */
+}
+
+/* Info Boxes */
+.info-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 32%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.info-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Statistics and Control Devices */
+.statistics-and-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Statistics */
+.statistics {
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  min-width: 70%;
+  min-height: 400px;
+}
+
+.statistics h2 {
+  margin-bottom: 20px;
+  font-size: 25px;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 10px;
+}
+
+/* Control Devices */
+.control-devices {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
+  min-width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.control-devices h2 {
+  margin-bottom: 20px;
+  font-size: 25px;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 10px;
+}
+
+/* Device Buttons */
+.device-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-buttons .device {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.device-buttons .device .icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.device-buttons .device span {
+  flex-grow: 1;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+/* CSS for rotating fan */
+.rotate {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS for light bulb effect */
+.on {
+  color: #ffeb3b; /* Bright Yellow for the light bulb */
+}
+
+/* Optional styling for active devices */
+/*.device.active {
+  background: linear-gradient(145deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.1));
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+}
+*/
+
+.device:hover {
+  background: linear-gradient(145deg, rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.2));
+  box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+}
+
+.device .icon {
+  font-size: 30px; /* Đặt kích thước icon cố định */
+  margin-right: 10px; /* Khoảng cách giữa icon và span */
+  width: 30px; /* Đặt chiều rộng cố định cho icon để chúng đồng nhất */
+}
+
+.snowflake-on {
+  color: #00e5ff; /* Icy blue color */
+  animation: spin 3s linear infinite;
+}
+
+.fan-on {
+  color: red;
+  animation: spin 3s linear infinite;
+}
+
+/* Style for Select Chart */
+.statistics select {
+  width: 17%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  appearance: none; /* Loại bỏ mũi tên mặc định của select */
+  -webkit-appearance: none; /* Cho trình duyệt WebKit */
+  -moz-appearance: none; /* Cho Firefox */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'><path fill='rgba(44, 62, 80, 0.8)' d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  right: 0;
+  margin-bottom: 10px;
+}
+
+.statistics select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  outline: none; /* Loại bỏ đường viền outline mặc định khi focus */
+}

@@ -1,0 +1,126 @@
+.info-box-container2 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.info-box2 {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-box2 dust {
+  height: 30%;
+}
+
+.statistics2 {
+  height: 30%;
+}
+
+.info-box2 warning-box {
+  height: 30%;
+}
+/* Font size larger for both dust and dust-count boxes */
+.info-box2 h3 {
+  font-size: 1.5rem; /* Tăng kích thước tiêu đề */
+}
+
+.info-box2 p {
+  font-size: 1.2rem; /* Tăng kích thước nội dung */
+}
+
+.info-box2.dust-count {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box-container2 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.info-box2, .statistics2, .warning-box {
+  flex-basis: 30%; /* mỗi box chiếm 30% chiều rộng */
+  max-width: 30%;
+}
+
+.info-box2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-box2 h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.info-box2 p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.info-box2.dust-count {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.warning-box {
+  transition: opacity 0.5s;
+  opacity: 1;
+  font-size: 70;
+}
+
+.warning-box.blink {
+  animation: blink-animation 5s infinite; /* Chạy animation liên tục mỗi 5 giây */
+}
+
+@keyframes blink-animation {
+  0% {
+    background-color: red; /* Bắt đầu với màu đỏ */
+  }
+  12.5% {
+    background-color: white; /* Chuyển sang màu trắng */
+  }
+  25% {
+    background-color: red; /* Quay lại màu đỏ */
+  }
+  37.5% {
+    background-color: white; /* Chuyển sang màu trắng */
+  }
+  50% {
+    background-color: red; /* Quay lại màu đỏ */
+  }
+  62.5% {
+    background-color: white; /* Chuyển sang màu trắng */
+  }
+  75% {
+    background-color: red; /* Quay lại màu đỏ */
+  }
+  87.5% {
+    background-color: white; /* Chuyển sang màu trắng */
+  }
+  100% {
+    background-color: red; /* Kết thúc với màu đỏ */
+  }
+}
+
+

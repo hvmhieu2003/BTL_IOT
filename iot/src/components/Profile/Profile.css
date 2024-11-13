@@ -1,0 +1,69 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Chiều cao bằng chiều cao của viewport trừ đi chiều cao của header */
+}
+
+.profile-container {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Đặt tất cả theo cột */
+  align-items: center; /* Căn giữa tất cả các phần tử */
+  width: 90%;
+  max-width: 800px; /* Giới hạn chiều rộng tối đa */
+}
+
+.profile-picture {
+  margin-bottom: 20px; /* Tăng khoảng cách dưới ảnh */
+}
+
+.rounded-profile-picture {
+  width: 200px; /* Kích thước ảnh */
+  height: 200px; /* Kích thước ảnh */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column; /* Đặt các chi tiết theo cột */
+  align-items: center; /* Căn giữa thông tin */
+}
+
+.profile-details h2 {
+  font-size: 36px; /* Tăng kích thước font chữ cho tiêu đề */
+  margin-bottom: 15px; /* Tăng khoảng cách dưới tiêu đề */
+}
+
+.profile-details p {
+  margin: 8px 0; /* Tăng khoảng cách giữa các dòng */
+  font-size: 20px; /* Tăng kích thước font chữ cho thông tin */
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column; /* Đặt các liên kết theo cột */
+  gap: 15px; /* Tăng khoảng cách giữa các liên kết */
+  margin-top: 30px; /* Tăng khoảng cách giữa thông tin và liên kết */
+}
+
+.link-box {
+  text-align: center; /* Căn giữa liên kết */
+}
+
+.link-box a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 22px; /* Tăng kích thước font chữ cho liên kết */
+  padding: 10px; /* Thêm padding cho liên kết */
+}
+
+.link-box a:hover {
+  color: #2980b9;
+}

@@ -1,0 +1,26 @@
+/* Style cho ô tìm kiếm và page size */
+.statistics-stat .filter-bar1 {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử theo hàng ngang */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    margin-bottom: 15px; /* Khoảng cách dưới */
+}
+
+.statistics-stat .filter-bar1 .search1 {
+    margin-right: 10px;
+    width: 17%;
+}
+
+.statistics-stat .filter-bar1 .page-size {
+    display: flex;
+    width: 17%;
+    align-items: center;
+}
+
+.statistics-stat .filter-bar1 .page-size select {
+    margin-left: 100px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #1976d2;
+    font-size: 14px; /* Giảm kích thước font để không làm ảnh hưởng đến chiều rộng */
+    width: 100%; /* Đặt chiều rộng là 100% của phần tử chứa */
+}
